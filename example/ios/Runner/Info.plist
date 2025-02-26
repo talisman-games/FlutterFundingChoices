@@ -42,7 +42,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>GADApplicationIdentifier</key>
-	<string>TODO: put your ad here</string>
+	<string>ca-app-pub-9390556562087047~4951673198</string>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>This identifier will be used to deliver personalized ads to you.</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>

@@ -55,10 +55,11 @@ class _ExampleAppState extends State<_ExampleApp> {
           textAlign: TextAlign.center,
         ),
         Text(
-          'Is consent form available ? ' + (consentInfo.isConsentFormAvailable ? 'Yes' : 'No') + '.',
+          'Is consent form available ? ${consentInfo.isConsentFormAvailable ? 'Yes' : 'No'}.',
           textAlign: TextAlign.center,
         ),
-        if (consentInfo.isConsentFormAvailable && consentInfo.consentStatus == ConsentStatus.required)
+        if (consentInfo.isConsentFormAvailable &&
+            consentInfo.consentStatus == ConsentStatus.required)
           ElevatedButton(
             child: const Text('Show consent form'),
             onPressed: () async {
@@ -77,7 +78,8 @@ class _ExampleAppState extends State<_ExampleApp> {
 
   /// Refreshes the current consent info.
   Future<void> refreshConsentInfo() async {
-    ConsentInformation consentInfo = await FlutterFundingChoices.requestConsentInformation();
+    ConsentInformation consentInfo =
+        await FlutterFundingChoices.requestConsentInformation();
     setState(() {
       consentInfoRetrieved = true;
       this.consentInfo = consentInfo;

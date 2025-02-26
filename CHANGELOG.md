@@ -1,3 +1,21 @@
+## 1.3.0
+
+General:
+
+- Raise minimum Flutter version to 3.24.0
+
+Android:
+
+- Update to Google UMP SDK 3.1.0
+- Update to Gradle 8.10.2 and AGP 8.8.1
+- Compile against Android SDK 34
+- Raise minimum Android SDK to 21
+- Fix deprecation warnings
+
+iOS:
+
+- Update to Google UMP SDK 2.7.0
+
 ## 1.2.0
 
 - Update to Google UMP SDK 2.2.0 for both platforms.

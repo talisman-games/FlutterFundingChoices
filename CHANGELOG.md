@@ -1,3 +1,19 @@
+## 1.4.0
+
+General:
+
+- Update to Flutter 3.29.5
+
+Android:
+
+- Update to Google UMP SDK 3.2.0
+- Compile against Android SDK 35
+- Update to Kotlin 2.2.0
+
+iOS:
+
+- Update to Google UMP SDK 3.0.0
+
 ## 1.3.0
 
 General:

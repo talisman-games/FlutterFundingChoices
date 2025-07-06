@@ -16,11 +16,11 @@ public class SwiftFlutterFundingChoicesPlugin: NSObject, FlutterPlugin {
         switch call.method {
         case "requestConsentInformation":
             let arguments: [String: Any?] = call.arguments as! [String: Any?]
-            var debugGeography: UMPDebugGeography = toUMPDebugGeography(id: arguments["debugGeography"] as? Int)
+            var debugGeography: DebugGeography = toUMPDebugGeography(id: arguments["debugGeography"] as? Int)
             requestConsentInformation(tagForUnderAgeOfConsent: arguments["tagForUnderAgeOfConsent"] as! Bool, testDevicesHashedIds: (arguments["testDevicesHashedIds"] as? [String]) ?? [], debugGeography: debugGeography, result: result)
         case "showConsentForm": showConsentForm(result: result)
         case "reset":
-            UMPConsentInformation.sharedInstance.reset()
+            ConsentInformation.shared.reset()
             result(true)
         default:
             result(FlutterMethodNotImplemented)
@@ -28,22 +28,22 @@ public class SwiftFlutterFundingChoicesPlugin: NSObject, FlutterPlugin {
     }
 
     /// Requests the consent information.
-    private func requestConsentInformation(tagForUnderAgeOfConsent: Bool, testDevicesHashedIds: [String], debugGeography: UMPDebugGeography, result: @escaping FlutterResult) {
-        let params = UMPRequestParameters()
-        params.tagForUnderAgeOfConsent = tagForUnderAgeOfConsent
+    private func requestConsentInformation(tagForUnderAgeOfConsent: Bool, testDevicesHashedIds: [String], debugGeography: DebugGeography, result: @escaping FlutterResult) {
+        let params = RequestParameters()
+        params.isTaggedForUnderAgeOfConsent = tagForUnderAgeOfConsent
 
         if (testDevicesHashedIds.count > 0) {
-            let debugSettings = UMPDebugSettings()
+            let debugSettings = DebugSettings()
             debugSettings.testDeviceIdentifiers = testDevicesHashedIds
             debugSettings.geography = debugGeography
             params.debugSettings = debugSettings
         }
         
-        UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(with: params) { error in
+        ConsentInformation.shared.requestConsentInfoUpdate(with: params) { error in
             if error == nil {
                 var consentInfo: [String: Any] = [:]
-                consentInfo["consentStatus"] = UMPConsentInformation.sharedInstance.consentStatus.rawValue
-                consentInfo["isConsentFormAvailable"] = UMPConsentInformation.sharedInstance.formStatus == UMPFormStatus.available
+                consentInfo["consentStatus"] = ConsentInformation.shared.consentStatus.rawValue
+                consentInfo["isConsentFormAvailable"] = ConsentInformation.shared.formStatus == FormStatus.available
                 result(consentInfo)
             } else {
                 result(FlutterError(code: "request_error", message: error!.localizedDescription, details: nil))
@@ -59,7 +59,7 @@ public class SwiftFlutterFundingChoicesPlugin: NSObject, FlutterPlugin {
             return
         }
 
-        UMPConsentForm.load { form, error in
+        ConsentForm.load { form, error in
             if error == nil {
                 form!.present(from: viewController!) { dismissError in
                     if dismissError == nil {
@@ -75,14 +75,14 @@ public class SwiftFlutterFundingChoicesPlugin: NSObject, FlutterPlugin {
     }
     
     /// Converts an integer to a UMPDebugGeography.
-    private func toUMPDebugGeography(id: Int?) -> UMPDebugGeography {
+    private func toUMPDebugGeography(id: Int?) -> DebugGeography {
         switch id {
         case 1:
-            return UMPDebugGeography.EEA
+            return DebugGeography.EEA
         case 2:
-            return UMPDebugGeography.notEEA
+            return DebugGeography.other
         default:
-            return UMPDebugGeography.disabled
+            return DebugGeography.disabled
         }
     }
 }

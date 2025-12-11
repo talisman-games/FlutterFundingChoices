@@ -1,3 +1,17 @@
+## 2.0.0
+
+Android:
+
+- Update to Google UMP SDK 4.0.0
+- Increase the minimum Android API level to 23
+- Update to AGP 8.13.2
+- Update to Kotlin 2.2.21
+
+iOS:
+
+- Update to Google UMP SDK 3.1.0
+- Increase the minimum supported iOS version to 13.0
+
 ## 1.4.0
 
 General:

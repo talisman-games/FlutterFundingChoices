@@ -1,9 +1,9 @@
 PODS:
   - Flutter (1.0.0)
-  - flutter_funding_choices (1.4.0):
+  - flutter_funding_choices (2.0.0):
     - Flutter
-    - GoogleUserMessagingPlatform (~> 3.0.0)
-  - GoogleUserMessagingPlatform (3.0.0)
+    - GoogleUserMessagingPlatform (~> 3.1.0)
+  - GoogleUserMessagingPlatform (3.1.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -20,10 +20,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_funding_choices/ios"
 
 SPEC CHECKSUMS:
-  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  flutter_funding_choices: db717abffc3ced9c82d73d43563b3ae5775809d0
-  GoogleUserMessagingPlatform: f8d0cdad3ca835406755d0a69aa634f00e76d576
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  flutter_funding_choices: 12cf9d1e058871f5cfa82b5a6a1560d50ba16e91
+  GoogleUserMessagingPlatform: befe603da6501006420c206222acd449bba45a9c
 
-PODFILE CHECKSUM: 6998435987a000fdec9b2e1b5b1eef6d54bdba77
+PODFILE CHECKSUM: d2243213672c3c48aae53c36642ba411a6be7309
 
 COCOAPODS: 1.16.2

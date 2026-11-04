@@ -2,13 +2,13 @@ import Flutter
 import UIKit
 import UserMessagingPlatform
 
-public class SwiftFlutterFundingChoicesPlugin: NSObject, FlutterPlugin {
+public class FlutterFundingChoicesPlugin: NSObject, FlutterPlugin {
     /// The channel method name.
     static let channelName: String = "flutter_funding_choices"
 
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: channelName, binaryMessenger: registrar.messenger())
-        let instance = SwiftFlutterFundingChoicesPlugin()
+        let instance = FlutterFundingChoicesPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
 

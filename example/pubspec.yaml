@@ -13,4 +13,6 @@ dependencies:
     path: ../
 
 flutter:
+  config:
+    enable-swift-package-manager: true
   uses-material-design: true

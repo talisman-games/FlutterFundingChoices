@@ -1,3 +1,20 @@
+## 3.0.0
+
+General:
+
+- Minimum Flutter version 3.47
+- Minimum Dart verison 3.13
+
+Android:
+
+- Migrate to built-in Kotlin
+- Update to AGP 9.4.1
+
+iOS:
+
+- Minimum iOS version 15.0
+- Completed UISceneDelegate migration
+
 ## 2.0.0
 
 Android:

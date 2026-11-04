@@ -12,6 +12,7 @@ Android:
 
 iOS:
 
+- Added support for Swift Package Manager
 - Minimum iOS version 15.0
 - Completed UISceneDelegate migration
 

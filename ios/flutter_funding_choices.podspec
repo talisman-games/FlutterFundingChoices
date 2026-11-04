@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_funding_choices'
-  s.version          = '2.0.0'
+  s.version          = '3.0.0'
   s.summary          = 'The Flutter implementation of Funding Choices, a Google service that allows to request user consent for personalized ads in AdMob.'
   s.description      = <<-DESC
 The Flutter implementation of Funding Choices, a Google service that allows to request user consent for personalized ads in AdMob.
@@ -22,5 +22,5 @@ The Flutter implementation of Funding Choices, a Google service that allows to r
 
   # Flutter.framework does not contain a i386 slice. Only x86_64 and arm64 simulators are supported.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'arm64 arm64e x86_64' }
-  s.swift_version = '5.0'
+  s.swift_version = '6.0'
 end

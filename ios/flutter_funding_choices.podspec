@@ -15,7 +15,7 @@ The Flutter implementation of Funding Choices, a Google service that allows to r
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.platform = :ios, '13.0'
+  s.platform = :ios, '15.0'
 
   s.dependency 'GoogleUserMessagingPlatform', '~> 3.1.0'
   s.static_framework = true

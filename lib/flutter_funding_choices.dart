@@ -6,7 +6,9 @@ import 'package:flutter/services.dart';
 /// The main plugin class.
 class FlutterFundingChoices {
   /// The method channel.
-  static const MethodChannel _channel = MethodChannel('flutter_funding_choices');
+  static const MethodChannel _channel = MethodChannel(
+    'flutter_funding_choices',
+  );
 
   /// Allows to get the current consent information.
   ///
@@ -34,17 +36,22 @@ class FlutterFundingChoices {
           },
     );
     return ConsentInformation(
-      consentStatus: ConsentStatus.fromValue(result['consentStatus'], isAndroid ?? Platform.isAndroid),
+      consentStatus: ConsentStatus.fromValue(
+        result['consentStatus'],
+        isAndroid ?? Platform.isAndroid,
+      ),
       isConsentFormAvailable: result['isConsentFormAvailable'],
     );
   }
 
   /// Shows the consent form.
-  static Future<bool> showConsentForm() async => (await _channel.invokeMethod('showConsentForm')) ?? false;
+  static Future<bool> showConsentForm() async =>
+      (await _channel.invokeMethod('showConsentForm')) ?? false;
 
   /// Resets the user consent information.
   /// Must be requested using [requestConsentInformation] before.
-  static Future<bool> reset() async => (await _channel.invokeMethod('reset')) ?? false;
+  static Future<bool> reset() async =>
+      (await _channel.invokeMethod('reset')) ?? false;
 }
 
 /// Contains all possible information about user consent state.
@@ -56,7 +63,7 @@ class ConsentInformation {
   final bool isConsentFormAvailable;
 
   /// Creates a new consent information instance.
-  const ConsentInformation({
+  const new({
     required this.consentStatus,
     required this.isConsentFormAvailable,
   });
@@ -83,21 +90,25 @@ enum ConsentStatus {
   final int iosValue;
 
   /// Creates a new consent status instance.
-  const ConsentStatus({
+  new({
     required this.androidValue,
     required this.iosValue,
   });
 
   /// Creates a new consent status instance.
-  const ConsentStatus.oneValue({
+  new oneValue({
     required int value,
   }) : this(
-          androidValue: value,
-          iosValue: value,
-        );
+         androidValue: value,
+         iosValue: value,
+       );
 
   /// Returns the consent status associated with the specified value.
-  static ConsentStatus fromValue(int value, bool isAndroid) => values.firstWhere((status) => (isAndroid ? status.androidValue : status.iosValue) == value);
+  static ConsentStatus fromValue(int value, bool isAndroid) =>
+      values.firstWhere(
+        (status) =>
+            (isAndroid ? status.androidValue : status.iosValue) == value,
+      );
 }
 
 /// Contains all possible debugGeography values.
@@ -115,7 +126,7 @@ enum DebugGeography {
   final int value;
 
   /// Creates a new consent status instance.
-  const DebugGeography({
+  new({
     required this.value,
   });
 }

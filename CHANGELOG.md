@@ -1,3 +1,7 @@
+## 3.0.1
+
+- Downgraded from Swift 6 to 5, to fix a build error that didn't show up during testing.
+
 ## 3.0.0
 
 General:
